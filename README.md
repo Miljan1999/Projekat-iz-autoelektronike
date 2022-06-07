@@ -1,2 +1,2 @@
-# Projekat-iz-autoelektronike
-Projekat iz autoelektronike, parking senzor
+# Projekat iz autoelektronike
+ Autoelektronika, projekat parking senzor
