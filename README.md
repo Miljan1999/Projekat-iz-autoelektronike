@@ -1,10 +1,10 @@
 # Projekat iz autoelektronike
  Autoelektronika, projekat parking senzor
-Uvod:
+# Uvod:
 
-Zadatak projekta je napraviti (isprogramirati) i istestirati RTOS sistem parking senzora. Projekat je kreiran u VisualStudio2019 softveru. Takođe, u projektu su implementirani i MISRA standardi. Jedino MISRA pravilo koje nije ispoštovano je 11.2, za koje je rečeno da ga ignorišemo.
+ Zadatak projekta je napraviti (isprogramirati) i istestirati RTOS sistem parking senzora. Projekat je kreiran u VisualStudio2019 softveru. Takođe, u projektu su implementirani i MISRA standardi. Jedino MISRA pravilo koje nije ispoštovano je 11.2, za koje je rečeno da ga ignorišemo.
 
-Zadatak projekta u crtama:
+# Zadatak projekta u crtama:
 
 -Podaci sa dva senzora (levi i desni) se dobijaju automatski na svakih 200ms sa kanala 0 i 1
 -Kalibracija se vrši sa kanala 2, koji služi za komunikaciju sa PC-ijem, i preko kog se sistem pali i gasi
@@ -14,13 +14,13 @@ Zadatak projekta u crtama:
 -U zavisnosti od manje procentualne vrednosti, drugi stubac dioda sija različitom frekvencijom: ispod 0% - KONTAKT DETEKCIJA (perioda 2*250ms, frekvencija 2Hz), između 0% i 50% - BLISKA DETEKCIJA (perioda 2*500ms, frekvencija 1Hz), između 50% i 100% - UDALJENA DETEKCIJA (perioda 2*1000ms, frekvencija 0,5Hz), i iznad 100% - NEMA DETEKCIJE (diode ne sijaju).
 -Zone i procentualne vrednosti sa oba senzora se štampaju na kanalu 2 na svakih 5s
 
-Periferije:
+# Periferije:
 -Pri simulaciji su korišćeni AdvUniCom za serijsku komunikaciju, Seg7_disp, i LED_bar. 
 -Pokretanje LED_bar: za ispravno pokretanje ove periferije za naš kod, u terminalu je potrebno uneti komandu LED_bars_plus.exe rRR, da bi nulti stubac bio tasteri (ulazni), a prvi i drugi diode (izlazni).
 -Pokretanje Seg7_disp: u terminalu je potrebno uneti komandu Seg7_Mux 7.
 -Pokretanje AdvUniCom: u terminalu je potrebno uneti komande AdvUniCom.exe 0 (ili dvoklikom otvoriti ovaj kanal jer se on automatski pali), AdvUniCom.exe 1, i AdvUniCom.exe 2,da bismo imali sva 3 kanala.
 
-Testiranje sistema:
+# Testiranje sistema:
 -Nakon što su sve periferije pokrenute, može se pokrenuti i kod.
 -Sistem je inicijalno u upaljenom stanju, može se ugasiti komandom "stopp" u polju za tekst na serijskom kanalu 2 pritiskom na "SEND TEXT", i opet upaliti komandom "start" na istom mestu. 
 -Kalibracija se unisi u polju levo od "SEND CODE" na kanalu 2, u formatu \donja_granica\gornja_granica\0d (0d == CR).
@@ -30,7 +30,7 @@ Testiranje sistema:
 -Zonu senzora koji očitava manju vrednost je moguće pratiti i na LED diodama koje sijaju različitom frekvencijom u zavisnosti od zone
 -Pri testiranju je najlakše utvrditi da li su podaci obrađeni kako treba tako što ćemo za vrednost senzora uneti neku od granica, te ako je npr senzor1==donja_granica, procentualna vrednost mora biti 0%, i ako je jednaka donjoj onda mora biti 100%. Frekvencije za diode su podešene tako da se što bolje može uočiti razlika u brzini blinkanja u zavisnosti od zone.
 
-Opis funkcija:
+# Opis funkcija:
 
 task_ukljuci_iskljuci: funkcija koja vrši "suspend" i "resume" na ostale taskove u projektu, u zavisnosti od toga da li je sistem u upaljenom ili ugašenom stanju. Takođe, u ovoj funkciji se pali ili gasi signalna dioda koja prati stanje sistema.
 
